@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('search/{title}',[ProductController::class,'search']);
 Route::get('/', function () {
     return view('landing');
 });
@@ -68,7 +68,7 @@ Route::get('carousel',[CarouselController::class,'index'])->name('carousel');
 Route::get('customize',[BeadController::class,'index'])->name('customize');
 Route::get('latest',[LatestController::class,'index'])->name('latest');
 Route::get('home',[MainController::class,'index'])->name('main');
-Route::post('add_to_cart',[ProductController::class,'addToCart'])->name('addtocart');
+// Route::post('add_to_cart',[ProductController::class,'addToCart'])->name('addtocart');
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -77,3 +77,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('adminuser',[UserController::class,'userData'])->name('backend.user');
 Route::get('adminproduct',[ProductController::class,'index'])->name('backend.product.index');
+
+
+
+Route::post('addcart/{id}',[ProductController::class,'addcart']);
+Route::get('cart',[ProductController::class,'showcart']);
+Route::get('delete/{id}',[ProductController::class,'deletecart']);
+

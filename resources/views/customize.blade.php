@@ -1,6 +1,6 @@
 @extends('dashboard')
 
-<div class="container mt-4 mb-4">
+<div class="container" style="margin-top: 10%">
     <div class="border p-4 selected-bead-container">
         <!-- Buttons for clearing and adding to cart -->
         
@@ -8,8 +8,8 @@
 </div>
 
 <section id="customize" class="product-section">
-    <div class="container mt-4 mb-4">
-        <div class="border p-4">
+    <div class="container mt-4 mb-4" >
+        <div class="border p-4" >
             <div class="row">
                 <!-- Bracelet Product 1 -->
                 @foreach ($beads as $bead)

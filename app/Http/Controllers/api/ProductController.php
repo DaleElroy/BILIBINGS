@@ -21,7 +21,7 @@ class ProductController extends Controller
         if ($request->hasFile('gallery')) {
             $image = $request->file('gallery');
             $imageName = time().'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->move(public_path('products'), $imageName);
             $product->gallery = $imageName;
         }
     

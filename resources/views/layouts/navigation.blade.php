@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <link rel="stylesheet" href="/css/style.css">
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
@@ -24,8 +26,8 @@
                         <a class="nav-link text-white" href="#shop" data-after="shop">Shop</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown1"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Category
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
@@ -35,14 +37,15 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{route('customize')}}">Customize</a>
+                        <a class="nav-link text-white" href="{{ route('customize') }}">Customize</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/about" data-after="About">About</a>
                     </li>
                 </ul>
-                <form class="form-inline">
+                <form class="form-inline" action="{{ route('search') }}" method="GET">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -66,8 +69,8 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
@@ -99,6 +102,7 @@
     <link rel="stylesheet" href="/css/style.css">
 
 </body>
+
 </html>
 
 

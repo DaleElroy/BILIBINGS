@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ProductController extends Controller
 {
@@ -25,20 +27,48 @@ class ProductController extends Controller
         $products = Product::find($id);
         return view('detail',['product'=>$products]);
     }
-    public function addToCart(Request $request){
-        if($request->session()->has('user')){
-            $carts = new Cart;
-            $carts->user_id=$request->session()->get('user')['id'];
-            $carts->product_id=$request->product_id;
-            $carts->save();
-            return redirect('/shop');
+    public function addcart(Request $request, $id){
 
+
+
+        if(Auth::check()){
+            $user =auth()->user();
+                if ($user) {
+                $product=Product::find($id);
+                $cart=new Cart;
+                $cart->name=$user->name?? null;
+                $cart->product_title=$product->title;
+                $cart->product_price=$product->price;
+                $cart->quantity=$request->quantity;
+                $cart->product_category=$product->category;
+                $cart->product_photo=$product->gallery;
+                $cart->save();
+                return redirect()->back()->with('message','Product Added successfully');
+                }
         }
         else{
-            return redirect ('/login');
+            return redirect('login');
         }
         
     }
+    public function showcart() {
+        $user = auth()->user();
+        $carts = Cart::all(); 
+        return view('cart', compact('carts'));
+    }
+    public function deletecart($id){
+        $data =cart::find($id);
+        $data->delete();
+
+        return redirect()->back();
+    }
+    public function search($title)
+    {
+        $results = Product::where('title', 'like', '%' . $title . '%')->get();
+        return view('carousel', compact('results'));
+    }
+    
+    
     
     
 }
