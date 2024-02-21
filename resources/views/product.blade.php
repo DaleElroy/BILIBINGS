@@ -1,5 +1,5 @@
 @extends('dashboard')
-@section('content')
+
 
     <section id="necklace" class="product-section">
         <div class="container" style="margin-top: 5%">
@@ -23,7 +23,7 @@
                                             <h4>{{ $product->title }}</h4>
                                             <p>{{ $product->description }}</p>
                                             <div class="position-relative bottom-details">
-                                                <p class="card-text"><strong>Price:{{ $product->price }} </strong></p>
+                                                <p class="card-text"><strong>Price:$ {{ $product->price }} </strong></p>
                                                 <div class="links">
                                                     <form action="{{ url('addcart', $product->id) }}" method="POST">
                                                         @csrf
@@ -45,10 +45,10 @@
                 @endforeach
             @endforeach
         </div>
-
+        <div class="bottom" style="margin-top: 10px;">
+        {{View::make("frontend.footer")}}
+    </div>
     </section>
-
-
     <style>
         .border {
             margin-top: 50px;

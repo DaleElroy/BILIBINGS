@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Navigation</title>
 </head>
 
 <body>
@@ -40,10 +40,10 @@
                         <a class="nav-link text-white" href="{{ route('customize') }}">Customize</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="/about" data-after="About">About</a>
+                        <a class="nav-link text-white" href="{{url('about')}}" data-after="About">About</a>
                     </li>
                 </ul>
-                <form class="form-inline" action="{{ route('search') }}" method="GET">
+                <form class="form-inline" action="{{ url('search') }}" method="GET">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,7 +22,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/" data-after="Home">Home</a>
+                    <a class="nav-link
+                    ext-white" href="/" data-after="Home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href={{route('product')}} data-after="shop">Shop</a>
@@ -42,7 +43,7 @@
                     <a class="nav-link text-white" href={{route('customize')}}>Customize</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/about" data-after="About">About</a>
+                    <a class="nav-link text-white" href="{{url('about')}}" data-after="About">About</a>
                 </li>
             </ul>
             <form class="form-inline">
@@ -91,9 +92,16 @@
 </nav>
 
 <body>
-  
+    <div class="container">
+        @yield('content')
+    </div>
+    
+    {{View::make("frontend.footer")}}
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -104,6 +112,4 @@
     </script>
 
 
-</body>
-
-</html>
+</html> --}}

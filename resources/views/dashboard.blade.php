@@ -39,11 +39,12 @@
                     <a class="nav-link text-white" href="{{url('customize')}}">Customize</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/about" data-after="About">About</a>
+                    <a class="nav-link text-white" href="{{url('about')}}" data-after="About">About</a>
                 </li>
             </ul>
-            <form class="form-inline">
+            <form class="form-inline" action="{{ url('search') }}" method="GET">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
@@ -87,6 +88,7 @@
     </div>
 </nav>
 <body>
+
     
     
 </body>

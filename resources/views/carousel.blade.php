@@ -1,5 +1,5 @@
-@extends('landing')
-<div class="container mt-6" style="padding-top: 80px">
+@extends('dashboard')
+<div class="container mt-6" style="padding-top: 80px;" >
     <div class="row">
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-7">
@@ -72,7 +72,7 @@
                                         <h4>{{ $product->title }}</h4>
                                         <p>{{ $product->description }}</p>
                                         <div class="position-relative bottom-details">
-                                            <p class="card-text"><strong>Price:{{ $product->price }} </strong></p>
+                                            <p class="card-text"><strong>Price: ${{ $product->price }} </strong></p>
                                             <div class="links">
                                                 <form action="{{ url('addcart', $product->id) }}" method="POST">
                                                     @csrf
@@ -94,4 +94,8 @@
             @endforeach
         @endforeach
     </div>
+    
 </div>
+<div class="bottom" style="margin-top:10%">
+    {{View::make("frontend.footer")}}
+    </div>

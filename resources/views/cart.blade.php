@@ -55,3 +55,6 @@
         </tfoot>
     </table>
 </div>
+<div class="fixed-bottom">
+    {{View::make("frontend.footer")}}
+    </div>

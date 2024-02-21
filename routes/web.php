@@ -3,6 +3,7 @@
 use App\Http\Controllers\BeadController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\LatestController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -21,11 +22,13 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::post('addcart/{id}',[ProductController::class,'addcart']);
+Route::get('cart',[ProductController::class,'showcart']);
+Route::get('delete/{id}',[ProductController::class,'deletecart']);
 Route::get('search/{title}',[ProductController::class,'search']);
-Route::get('/', function () {
-    return view('landing');
-});
-Route::get('/',[CarouselController::class,'index'])->name('landing');
+
+Route::get('/',[CarouselController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -54,11 +57,8 @@ require __DIR__.'/auth.php';
 Route::get('/customize',function(){
     return view('customize');
 });
-Route::get('log',function(){
-    return view('logged');
-});
-Route::get('cart',function(){
-    return view('cart');
+Route::get('about',function(){
+    return view('about');
 });
 
 Route::get('shop', [ProductController::class, 'categorys'])->name('product');
@@ -71,16 +71,32 @@ Route::get('home',[MainController::class,'index'])->name('main');
 // Route::post('add_to_cart',[ProductController::class,'addToCart'])->name('addtocart');
 
 
+
+
+
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 });
 
-Route::get('adminuser',[UserController::class,'userData'])->name('backend.user');
-Route::get('adminproduct',[ProductController::class,'index'])->name('backend.product.index');
+
+    Route::get('home',[LoginController::class,'admin'])->name('backend.admin');
+    
+    
+    Route::get('post',[LoginController::class,'post']);
+
+    Route::controller(UserController::class)->group(function(){
+        Route::get('adminusers','userData');
+        route::get('/adminusers/create','create');
+        Route::get('/adminusers/{user}/edit','edit');
+        Route::post('/adminusers','store');
+        Route::put('/adminusers/{user}','update');
+        Route::delete('/adminusers/{user}','destroy');
+    });
+    Route::get('adminusers',[UserController::class,'userData'])->name('backend.user');
+    Route::delete('adminusers/{user}', [UserController::class, 'destroy'])->name('backend.user');
+    
 
 
-
-Route::post('addcart/{id}',[ProductController::class,'addcart']);
-Route::get('cart',[ProductController::class,'showcart']);
-Route::get('delete/{id}',[ProductController::class,'deletecart']);
-
+// Route::get('adminuser',[UserController::class,'userData'])->name('backend.user');
+// Route::get('adminproduct',[ProductController::class,'index'])->name('backend.product.index');

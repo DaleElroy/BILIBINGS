@@ -9,8 +9,8 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h4>Student List
-                        <a href="{{ url('students/create') }}" class="btn btn-primary float-end">Add Students</a>
+                    <h4>Users list
+                        <a href="{{ url('adminusers/create') }}" class="btn btn-primary float-end">Add User</a>
                     </h4>
                     <div class="card-body">
                         <h5>Total Users: {{ $userCount }}</h5> 
@@ -18,10 +18,12 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>User</th>
+                                    <th>User Name</th>
+                                    <th>Role</th>
+
                                     <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Age</th>
+                                    <th>Phone No.</th>
+                                    <th>Address</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -30,14 +32,15 @@
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
+                                        <td>{{ $user->isAdmin }}</td>
+
                                         <td>{{ $user->email }}</td>
-                                        {{-- <td>{{ optional($user->detail)->age }}</td>
-                                        <td>{{ optional($user->detail)->gender }}</td>
-                                        <td>{{ optional($user->detail)->address }}</td> --}}
+                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $user->address }}</td>
                                         <td>
-                                            <a href="{{ url('users/' . $user->id) . '/edit' }}"
+                                            <a href="{{ url('adminusers/' . $user->id) . '/edit' }}"
                                                 class="btn btn-success btn-sm">Edit</a>
-                                            <form action="{{ url('users/' . $user->id) }}" method= "POST"
+                                            <form action="{{ url('adminusers/' . $user->id) }}" method= "POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')

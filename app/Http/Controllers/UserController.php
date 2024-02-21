@@ -25,4 +25,36 @@ class UserController extends Controller
         return redirect('/');
        }
     }
+    public function edit(User $user){
+        return view('backend.edit',compact('user'));
+    }
+    public function update(Request $request, User $user)
+    {
+    $user->update([
+        'name' => $request->input('name'),
+        'age' => $request->input('age'),
+        'address' => $request->input('address'),
+        
+        'phone' => $request->input('phone'),
+    ]);
+    return back();
+    }
+    public function destroy(User $user){
+        $user->delete();
+        return redirect('backend.user')->with('message',"The Data has been Deleted Successfully");
+    }
+
+    public function store(Request $request){
+        $user = User::create([
+            'name' =>$request->name,
+            'email' => $request->email,
+            'password'=> $request->password,
+
+        ]);
+        return redirect('/adminusers')->with('message','Added Successfully');
+
+    }
+    public function create(){
+        return view('backend.create');
+    }
 }

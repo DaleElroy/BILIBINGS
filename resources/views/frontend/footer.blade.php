@@ -1,4 +1,4 @@
-@extends('dashboard')
+
 <footer class="text-center text-lg-start"
     style="background:linear-gradient(to right,#474e68,#6b72Be ); width: 100%; position: relative;">
 

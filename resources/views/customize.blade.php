@@ -28,6 +28,9 @@
         </div>
     </div>
 </section>
+<div class="fixed-bottom">
+    {{View::make("frontend.footer")}}
+</div>
     
 
 <style>
@@ -47,6 +50,8 @@
         max-height: 50px; 
     }
 </style>
+<div style="margin-top:24%">
+</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
