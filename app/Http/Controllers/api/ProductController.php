@@ -37,7 +37,7 @@ class ProductController extends Controller
         return view('product', compact('products', 'category'));
     }
     
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $product = Product::find($request->id);
         if (!$product) {
             return ["Result" => "Product not found"];

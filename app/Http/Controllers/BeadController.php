@@ -11,5 +11,8 @@ class BeadController extends Controller
         $bead= Bead::all();
         return view('customize', ['beads' => $bead]);
     }
+    public function store(Bead $bead){
+        
+    }
 
 }

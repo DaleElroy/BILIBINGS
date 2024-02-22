@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 Route::controller(AdminController::class)->group(function(){
     Route::get('adminregister','register')->name('backend.register');
     Route::post('adminregister','registerSave')->name('backend.register.save');
+    Route::get('admindashboard','dashBoard');
 });
 
 Route::get('/test', [ProductController::class, 'categorys'])->name('product');
@@ -85,7 +86,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
     Route::get('post',[LoginController::class,'post']);
 
-    Route::controller(UserController::class)->group(function(){
+    Route::controller(AdminController::class)->group(function(){
         Route::get('adminusers','userData');
         route::get('/adminusers/create','create');
         Route::get('/adminusers/{user}/edit','edit');
@@ -93,9 +94,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::put('/adminusers/{user}','update');
         Route::delete('/adminusers/{user}','destroy');
     });
-    Route::get('adminusers',[UserController::class,'userData'])->name('backend.user');
-    Route::delete('adminusers/{user}', [UserController::class, 'destroy'])->name('backend.user');
+    Route::get('adminusers',[AdminController::class,'userData'])->name('backend.user');
+    Route::delete('adminusers/{user}', [AdminController::class, 'destroy'])->name('backend.user');
     
+
+
+    
+    Route::controller(AdminController::class)->group(function(){
+        Route::get('adminproduct','productList');
+        route::get('adminproduct/create','create');
+        Route::get('adminproduct/{product}/edit','editproduct');
+        Route::post('adminproduct','store');
+        Route::put('adminproduct/{product}','update');
+        Route::delete('/dminproduct/{product}','destroy');
+    });
+    Route::get('adminproduct',[AdminController::class,'productList'])->name('backend.product.index');
+    Route::delete('adminproduct/{product}', [AdminController::class, 'destroy'])->name('backend.product.index');
 
 
 // Route::get('adminuser',[UserController::class,'userData'])->name('backend.user');

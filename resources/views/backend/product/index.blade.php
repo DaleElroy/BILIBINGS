@@ -1,3 +1,4 @@
+
 @extends('backend.layouts.app')
     <div class="container mt-5">
         <div class="row">
@@ -9,7 +10,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Product
-                            <a href="{{ url('students/create') }}" class="btn btn-primary float-end">Add Students</a>
+                            <a href="{{ url('students/create') }}" class="btn btn-primary float-end">Add Product</a>
                         </h4>
                         <div class="card-body">
                             <table class="table table-boarded table-striped">
@@ -34,13 +35,13 @@
                                             <td>  <img src="{{ asset('products/' . $product->gallery) }}"
                                                 class="card-img-top" alt="{{ $product->title }}"  style="max-width: 100px; max-height: 100px;"></td>
                                             <td>{{ $product->category }}</td>
-                                            <td>{{ $product->price }}</td>
+                                            <td>₱{{ $product->price }}</td>
                                             
                                             
                                             <td>
-                                                <a href="{{ url('products/' . $product->id) . '/edit' }}"
+                                                <a href="{{ url('adminproduct/' . $product->id) . '/edit' }}"
                                                     class="btn btn-success btn-sm">Edit</a>
-                                                <form action="{{ url('products/' . $product->id) }}" method= "POST"
+                                                <form action="{{ url('adminproduct/' . $product->id) }}" method= "POST"
                                                     class="d-inline">
                                                     @csrf
                                                     @method('DELETE')

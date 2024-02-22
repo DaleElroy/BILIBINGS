@@ -67,12 +67,6 @@ class ProductController extends Controller
         $results = Product::where('title', 'like', '%' . $title . '%')->get();
         return view('carousel', compact('results'));
     }
-
-    public function adminData(){
-        $products = Product::all();
-        return view('backend.product.index', compact('products'));
-    }
-    
     
     
     
