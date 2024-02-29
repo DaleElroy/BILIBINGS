@@ -32,7 +32,7 @@
     <!-- Copyright -->
     <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2); bottom: 0; width: 100%;">
         © 2020 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">Bilibeaads</a>
+        <a class="text-white" href="{{url('about')}}">Bilibeaads</a>
     </div>
     <!-- Copyright -->
 </footer>

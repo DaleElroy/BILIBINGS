@@ -33,6 +33,12 @@
                                                         <br>
                                                         <input type="hidden" name="product_id" value="Add Cart">
                                                         <button class="btn btn-primary">Add to Cart</button>
+                                                        
+                                                    </form>
+                                                    <form action="{{url('cart',$product->id)}}" method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="Add Cart">
+                                                        <button class="btn btn-primary">Buy</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -49,38 +55,3 @@
         {{View::make("frontend.footer")}}
     </div>
     </section>
-    <style>
-        .border {
-            margin-top: 50px;
-        }
-
-        .card {
-            position: absolute;
-            place-items: center;
-            width: 220px;
-            background: #fafafa;
-            box-shadow: 0 2px 7px #dfdfdf;
-            font-family: sans-serif;
-
-
-        }
-
-        .tumb {
-            height: 150px;
-            background: #f0f0f0;
-            padding: 20px;
-
-            place-items: center;
-            /* Ensure the container has dimensions for the images */
-            width: 150px;
-            /* Assuming a fixed width */
-        }
-
-        .tumb img {
-            max-width: 100%;
-            /* Ensure the image doesn't exceed the container's width */
-            max-height: 100%;
-            /* Ensure the image doesn't exceed the container's height */
-            /* Ensure the image fits inside the container while maintaining its aspect ratio */
-        }
-    </style>

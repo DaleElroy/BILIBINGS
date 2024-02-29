@@ -82,6 +82,10 @@
                                                     <br>
                                                     <input type="hidden" name="product_id" value="Add Cart">
                                                     <button class="btn btn-primary">Add to Cart</button>
+
+
+                                                    <input type="hidden" name="product_id" value="Add Cart">
+                                                        <button class="btn btn-primary">Buy</button>
                                                 </form>
                                             </div>
                                         </div>

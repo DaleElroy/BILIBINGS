@@ -24,6 +24,7 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::post('addcart/{id}',[ProductController::class,'addcart']);
+Route::post('cart',[ProductController::class,'addbuy']);
 Route::get('cart',[ProductController::class,'showcart']);
 Route::get('delete/{id}',[ProductController::class,'deletecart']);
 Route::get('search/{title}',[ProductController::class,'search']);
