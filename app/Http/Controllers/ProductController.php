@@ -27,35 +27,27 @@ class ProductController extends Controller
         $products = Product::find($id);
         return view('detail',['product'=>$products]);
     }
-    public function addcart(Request $request, $id){
-
-
-
-        if(Auth::check()){
-            $user =auth()->user();
-                if ($user) {
-                $product=Product::find($id);
-                $cart=new Cart;
-                $cart->name=$user->name?? null;
-                $cart->product_title=$product->title;
-                $cart->product_price=$product->price;
-                $cart->quantity=$request->quantity;
-                $cart->product_category=$product->category;
-                $cart->product_photo=$product->gallery;
-                $cart->save();
-                return redirect()->back()->with('message','Product Added successfully');
-                }
-        }
-        else{
-            return redirect('login');
-        }
-        
-    }
-    public function showcart() {
-        $user = auth()->user();
-        $carts = Cart::all(); 
-        return view('cart', compact('carts'));
-    }
+    // public function addcart(Request $request, $id){
+    //     if(Auth::check()){
+    //         $user = auth()->user();
+    //         if ($user) {
+    //             $product = Product::find($id);
+    //             $cart = new Cart;
+    //             $cart->user_id = $user->id; // Associate cart with the authenticated user
+    //             $cart->product_id = $product->id; // Set the product_id
+    //             $cart->product_title = $product->title;
+    //             $cart->product_price = $product->price;
+    //             $cart->quantity = $request->quantity;
+    //             $cart->product_category = $product->category;
+    //             $cart->product_photo = $product->gallery;
+    //             $cart->save();
+    //             return redirect()->back()->with('message', 'Product Added successfully');
+    //         }
+    //     } else {
+    //         return redirect('login');
+    //     }
+    // }
+    
     public function deletecart($id){
         $data =cart::find($id);
         $data->delete();
@@ -67,7 +59,14 @@ class ProductController extends Controller
         $results = Product::where('title', 'like', '%' . $title . '%')->get();
         return view('carousel', compact('results'));
     }
+
+
+
+
     
-    
+   
     
 }
+    
+    
+    

@@ -1,5 +1,5 @@
 @extends('dashboard')
-<div class="container mt-6" style="padding-top: 80px;" >
+<div class="container" style="padding-top: 80px;" >
     <div class="row">
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-7">
@@ -58,10 +58,10 @@
         @endif
         @foreach ($products->chunk(6) as $chunkedProducts)
             @foreach ($chunkedProducts as $category => $categoryProducts)
-                <div class="border-p4">
-                    <div class="category-border">
+                <div class="col border border-2" style="margin-top: 5%">
+                    <div class="category-border" >
                         <h1 class="text-center"><span class="category">{{ ucfirst($category) }}</span></h1>
-                        <div class="row">
+                        <div class=" row">
                             @foreach ($categoryProducts as $product)
                                 <div class="card mb-4 g-col-6">
                                     <div class="text-center tumb">
@@ -70,9 +70,9 @@
                                     </div>
                                     <div class="card-body details">
                                         <h4>{{ $product->title }}</h4>
-                                        <p>{{ $product->description }}</p>
+                                        {{-- <p>{{ $product->description }}</p> --}}
                                         <div class="position-relative bottom-details">
-                                            <p class="card-text"><strong>Price: ${{ $product->price }} </strong></p>
+                                            <p class="card-text"><strong>Price: {{ $product->price }}Pesos</strong></p>
                                             <div class="links">
                                                 <form action="{{ url('addcart', $product->id) }}" method="POST">
                                                     @csrf
@@ -83,7 +83,7 @@
                                                     <input type="hidden" name="product_id" value="Add Cart">
                                                     <button class="btn btn-primary">Add to Cart</button>
 
-
+                                                    {{-- wala pang function sa buy --}}
                                                     <input type="hidden" name="product_id" value="Add Cart">
                                                         <button class="btn btn-primary">Buy</button>
                                                 </form>

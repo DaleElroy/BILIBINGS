@@ -14,16 +14,16 @@
                             <h1 class="text-center"><span class="category">{{ ucfirst($category) }}</span></h1>
                             <div class="row">
                                 @foreach ($categoryProducts as $product)
-                                    <div class="card mb-4 g-col-6">
+                                    <div class="card card mb-4 g-col-6">
                                         <div class="text-center tumb">
                                             <img src="{{ asset('products/' . $product->gallery) }}" class="img-fluid"
                                                 alt="{{ $product->title }}">
                                         </div>
                                         <div class="card-body details">
                                             <h4>{{ $product->title }}</h4>
-                                            <p>{{ $product->description }}</p>
+                                            {{-- <p>{{ $product->description }}</p> --}}
                                             <div class="position-relative bottom-details">
-                                                <p class="card-text"><strong>Price:$ {{ $product->price }} </strong></p>
+                                                <p class="card-text"><strong>Price: {{ $product->price }}Pesos </strong></p>
                                                 <div class="links">
                                                     <form action="{{ url('addcart', $product->id) }}" method="POST">
                                                         @csrf
@@ -33,13 +33,13 @@
                                                         <br>
                                                         <input type="hidden" name="product_id" value="Add Cart">
                                                         <button class="btn btn-primary">Add to Cart</button>
-                                                        
-                                                    </form>
-                                                    <form action="{{url('cart',$product->id)}}" method="POST">
-                                                        @csrf
+
+                                                        {{-- wala pang function sa buy --}}
                                                         <input type="hidden" name="product_id" value="Add Cart">
                                                         <button class="btn btn-primary">Buy</button>
+                                                        
                                                     </form>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -51,7 +51,7 @@
                 @endforeach
             @endforeach
         </div>
-        <div class="bottom" style="margin-top: 10px;">
+        <div class="bottom" style="margin-top: 10%;">
         {{View::make("frontend.footer")}}
     </div>
     </section>

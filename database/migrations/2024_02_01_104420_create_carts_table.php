@@ -1,5 +1,6 @@
 <?php
 
+use Brick\Math\BigInteger;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,15 +15,17 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('address')->nullable();
-            $table->string('gender')->nullable();
-            $table->string('quantity')->nullable();
-            $table->string('product_category')->nullable();
-            $table->string('product_title')->nullable();
-            $table->string('product_photo')->nullable();
-            $table->string('product_price')->nullable();
+            $table->string('quantity');
+            $table->string('product_category');
+            $table->string('product_title');
+            $table->string('product_photo');
+            $table->string('product_price');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
+
+            
             
             $table->timestamps();
         });

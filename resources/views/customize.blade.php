@@ -1,7 +1,7 @@
 @extends('dashboard')
 
 <div class="container" style="margin-top: 10%">
-    <div class="border p-4 selected-bead-container">
+    <div class="border p-4 selected-bead-container" >
         <!-- Buttons for clearing and adding to cart -->
         
     </div>
@@ -15,17 +15,18 @@
                 @foreach ($beads as $bead)
                     <div class="col mb-4">
                         <a href="#" class="bead-link" data-bead="{{ $bead->bead }}">
-                            <div class="card">
-                                <img src="{{ asset('beads/' . $bead->bead) }}" class="card-img-top bead-img"
+                            <div class="">
+                                <img src="{{ asset('beads/' . $bead->bead) }}" class="img-top bead-img"
                                     alt="{{ $bead->id }}">
                             </div>
                         </a>
                     </div>
                 @endforeach
             </div>
-            <button id="clearBtn" class="btn btn-danger mb-2">Clear</button>
-            <button id="addToCartBtn" class="btn btn-success mb-2">Add to Cart</button>
+            
         </div>
+        <button id="clearBtn" class="btn btn-danger mb-2">Clear</button>
+            <button id="addToCartBtn" class="btn btn-success mb-2">Add to Cart</button>
     </div>
 </section>
 <div class="fixed-bottom">
@@ -42,7 +43,7 @@
     .selected-bead-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px; 
+        gap: 1px; 
     }
 
     .selected-bead-container img {
