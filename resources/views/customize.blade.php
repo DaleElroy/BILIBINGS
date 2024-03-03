@@ -25,8 +25,12 @@
             </div>
             
         </div>
+        <div class="mb-2">
+            <label for="wristSize">Enter Wrist Size (in inches):</label>
+            <input type="number" id="wristSize" min="0" step="0.1">
+        </div>
         <button id="clearBtn" class="btn btn-danger mb-2">Clear</button>
-            <button id="addToCartBtn" class="btn btn-success mb-2">Add to Cart</button>
+        <button id="addToCartBtn" class="btn btn-success mb-2">Add to Cart</button>
     </div>
 </section>
 <div class="fixed-bottom">
@@ -57,6 +61,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var selectedBeadContainer = document.querySelector('.selected-bead-container');
+        var wristSizeInput = document.getElementById('wristSize');
 
         // Add click event listener to each bead link
         document.querySelectorAll('.bead-link').forEach(function (beadLink) {
@@ -64,6 +69,22 @@
                 event.preventDefault(); // Prevent default link behavior
 
                 var beadImageSrc = beadLink.dataset.bead; // Get the bead image src
+
+                // Check if wrist size is provided
+                var wristSize = parseFloat(wristSizeInput.value);
+                if (isNaN(wristSize) || wristSize <= 0) {
+                    alert('Please enter a valid wrist size greater than 0.');
+                    return;
+                }
+
+                // Calculate the maximum number of beads based on wrist size
+                var maxBeads = Math.floor(wristSize / 0.5); // Assuming 0.5 inches per bead
+
+                // Check if the maximum number of beads has been reached
+                if (selectedBeadContainer.children.length >= maxBeads) {
+                    alert('You have reached the maximum number of beads for your wrist size.');
+                    return;
+                }
 
                 // Create an image element for the selected bead
                 var selectedBeadImage = document.createElement('img');

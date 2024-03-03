@@ -22,6 +22,11 @@ class CartController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $product = Product::find($productId);
+            
+            if (!$product) {
+                return response()->json(['error' => 'Product not found'], 404);
+            }
+
             $cart = new Cart;
             $cart->user_id = $user->id; 
             $cart->product_id = $product->id; 
@@ -32,9 +37,10 @@ class CartController extends Controller
             $cart->product_photo = $product->gallery;
             $cart->save();
 
-            return redirect()->back()->with('message', 'Product added to cart successfully.');
-        } else {
-            return redirect('login')->with('error', 'You need to login to add products to your cart.');
+            return redirect()->back()->with('message', 'Product Added successfully');
+            } 
+        else {
+        return redirect('login');
         }
     }
 

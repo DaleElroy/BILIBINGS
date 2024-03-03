@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\BeadController;
 use App\Http\Controllers\api\CarouselController;
+use App\Http\Controllers\api\CartController;
 use App\Http\Controllers\api\LatestController;
 use App\Http\Controllers\api\PasswordResetController;
 use App\Http\Controllers\api\UserController;
@@ -70,4 +71,19 @@ Route::delete('latestproduct/{id}',[LatestController::class,'delete']);
 
 Route::get('customize',[BeadController::class,'index']);
 Route::post('customize',[BeadController::class,'store']);
+
+
+
+
+//Route for Add To Cart Api
+Route::get('addtocart', [CartController::class, 'index']);
+Route::post('addtocart/{id}', [CartController::class, 'addToCart']);
+Route::delete('cart/cart-remove/{id}', [CartController::class, 'destroy']);
+
+
+//Route for one to one
+
+Route::get('one',[UserController::class,'index']);
+Route::post('one',[UserController::class,'store']);
+Route::put('one/{id}',[UserController::class,'updateDetails']);
 

@@ -39,21 +39,21 @@
 
             <div>
                 <x-input-label for="phone" :value="__('Phone No.')" />
-                <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', $user->phone)"
+                <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" :value="old('phone', optional($user->details)->phone ?? '')"
                     required autofocus autocomplete="phone" />
                 <x-input-error class="mt-2" :messages="$errors->get('phone')" />
             </div>
 
             <div>
                 <x-input-label for="address" :value="__('Address')" />
-                <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)"
+                <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address',optional($user->details)->address ?? '')"
                     required autofocus autocomplete="address" />
                 <x-input-error class="mt-2" :messages="$errors->get('address')" />
             </div>
 
             <div>
                 <x-input-label for="age" :value="__('Age')" />
-                <x-text-input id="age" name="age" type="text" class="mt-1 block w-full" :value="old('age', $user->age)"
+                <x-text-input id="age" name="age" type="text" class="mt-1 block w-full" :value="old('age', optional($user->details)->age ?? '')"
                     required autofocus autocomplete="age" />
                 <x-input-error class="mt-2" :messages="$errors->get('age')" />
             </div>
@@ -62,10 +62,10 @@
                 <x-input-label for="gender" :value="__('Gender')" />
                 <select id="gender" name="gender" class="mt-1 block w-full" required autofocus
                     autocomplete="gender">
-                    <option value="" {{ old('gender', $user->gender) === '' ? 'selected' : '' }}>Select Gender
+                    <option value="" {{ old('gender', optional($user->details)->gender ?? '') === '' ? 'selected' : '' }}>Select Gender
                     </option>
-                    <option value="male" {{ old('gender', $user->gender) === 'male' ? 'selected' : '' }}>Male</option>
-                    <option value="female" {{ old('gender', $user->gender) === 'female' ? 'selected' : '' }}>Female
+                    <option value="male" {{ old('gender', optional($user->details)->gender ?? '') === 'male' ? 'selected' : '' }}>Male</option>
+                    <option value="female" {{ old('gender', optional($user->details)->gender ?? '') === 'female' ? 'selected' : '' }}>Female
                     </option>
                 </select>
                 <x-input-error class="mt-2" :messages="$errors->get('gender')" />

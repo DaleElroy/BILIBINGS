@@ -173,5 +173,35 @@ class UserController extends Controller
             'status'=>'success'
         ], 200);
     }
+
+
+    public function index(){
+        $users = User::with(['details'])->get();
+        return response()->json(['users'=>$users]);
+    }
+    public function store(Request $request){
+        $user = User::create($request->all());
+        if ($request->has('details')) {
+            $user->details()->create($request->input('details'));
+        }
+        return response()->json($user, 201);
+    }
+    
+    public function updateDetails(Request $request, $id){
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+    
+        if ($request->has('details')) {
+            $user->details()->update($request->input('details'));
+        }
+        return response()->json(['user' => $user]);
+    }
+    public function destroy($id){
+        $user = User::find($id);
+        $user->details()->delete();
+        $user->delete();
+        return response()->json(['message'=>"successfuld deleted"]);
+    }
 }
+
 

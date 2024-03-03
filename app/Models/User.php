@@ -21,12 +21,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone',
-        'address',
-        'isAdmin',
-        'age',
-        'gender',
-        'profile',
+        // 'phone',
+        // 'address',
+        // 'isAdmin',
+        // 'age',
+        // 'gender',
+        // 'profile',
         
     ];
 
@@ -51,6 +51,9 @@ class User extends Authenticatable
     ];
     public function carts(){
         return $this->hasMany(Cart::class);
+    }
+    public function details(){
+        return $this->hasOne(UserDetail::class);
     }
     public function isAdmin(){
         return $this->isAdmin;
