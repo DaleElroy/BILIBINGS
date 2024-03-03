@@ -23,7 +23,7 @@
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
-                                            <img src="/img/Bilibeads-logo.png" alt="Bilibeads Logo" class="h1 fw-bold mb-0" style="width: 170px; height: 80px;">
+                                            <img src="/img/logo.png" alt="Bilibeads Logo" class="h1 fw-bold mb-0" style="width: 170px; height: 80px;">
                                         </div>
 
                                         <div class="form-outline mb-4">

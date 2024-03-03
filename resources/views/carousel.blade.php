@@ -76,17 +76,22 @@
                                             <div class="links">
                                                 <form action="{{ url('addcart', $product->id) }}" method="POST">
                                                     @csrf
-                                                    <input type="number" value="1" min="1"
+                                                    <input type="number" value="1" min="1" max="10"
                                                         class="form-control" name="quantity">
 
                                                     <br>
-                                                    <input type="hidden" name="product_id" value="Add Cart">
+                                                    <input type="hidden" name="product_id" >
                                                     <button class="btn btn-primary">Add to Cart</button>
 
                                                     {{-- wala pang function sa buy --}}
-                                                    <input type="hidden" name="product_id" value="Add Cart">
-                                                        <button class="btn btn-primary">Buy</button>
+                                                   
+                                                    
                                                 </form>
+                                                <form action="{{ url('addbuy', $product->id) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="Add Cart">
+                                                <button class="btn btn-primary">Buy</button>
+                                            </form>
                                             </div>
                                         </div>
                                     </div>

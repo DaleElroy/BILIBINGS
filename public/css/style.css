@@ -1,13 +1,6 @@
 /* NavBar*/
-body{
-    font-family: 'Times New Roman', Times, serif;
-    
 
-}
-nav{
-    background:linear-gradient(to right,#3273d4,#1a7fea ) ;
-    padding: 10px;
-}
+
 
 /*Carousel*/
 #carousel{

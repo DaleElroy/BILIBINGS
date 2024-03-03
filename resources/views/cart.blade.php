@@ -1,60 +1,87 @@
-@extends('dashboard')
+@extends('cartdashboard')
 
-<div class="container">
-    <table id="cart" class="table table-bordered" style="margin-top: 20%">
-        <thead>
-            <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @php $total = 0 @endphp
-            
-                
-            
-                @foreach ($carts as $details)
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{ asset('products/' . $details->product_photo) }}"
-                                        class="card-img-top" /></div>
-                                <div class="col-sm-9">
-                                    <h4 class="nomargin">{{ $details['product_title'] }}</h4>
+
+    <section class=" h-200" style="background-color: #eee;">
+        <div class="container h-100 py-5 " style="background-color: #eee;">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-10">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                        <div>
+                            <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
+                                    class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                        </div>
+                    </div>
+
+                    @php
+                        $totalPrice = 0;
+                    @endphp
+
+                    @foreach ($carts as $details)
+                        <div class="card rounded-3 mb-4">
+                            <div class="card-body p-4">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                        <img src="{{ asset('products/' . $details->product_photo) }}"
+                                            class="img-fluid rounded-3" alt="{{ $details['product_title'] }}">
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <p class="lead fw-normal mb-2">{{ $details['product_title'] }}</p>
+
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                        <button class="btn btn-link px-2">
+                                            
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+
+                                        <input id="form1" min="0" name="quantity"
+                                            value="{{ $details['quantity'] }}" type="number"
+                                            class="form-control form-control-sm" />
+
+                                        <button class="btn btn-link px-2">
+                                           
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                        <h5 class="mb-0">${{(float)$details['product_price'] * (int)$details['quantity']}}</h5>
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                        <a href="{{ url('delete', $details->id) }}" class="text-danger">Delete<i
+                                                class="fas bi bi-trash fa-lg"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </td>
-                        <td data-th="Price">${{ $details['product_price'] }}</td>
-                        <td data-th="Quantity">{{ $details['quantity'] }}</td>
-                        <td data-th="Subtotal" class="text-center">{{ $details['product_price'] * $details['quantity'] }}</td>
-                        <td class="actions"> <a class="btn btn-danger" href="{{url('delete',$details->id)}}">Delete</a>
-                            
-                        </td>
-                    </tr>
-                    @php
-                        $total += $details['product_price'] * $details['quantity'];
-                    @endphp
-                @endforeach
+                        </div>
+                        @php
+                            $totalPrice += (float)$details['product_price'] * (int)$details['quantity'];
+                        @endphp
+                    @endforeach
+
+                    <div class="card">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary btn-block btn-lg">Total Price: ${{ $totalPrice }}</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-primary btn-block btn-lg">Proceed to Pay</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
             
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" class="text-right">Total: ${{ $total }}</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="5" class="text-right">
-                    <a href="{{ url('/') }}" class="btn btn-primary"><i class="fa fa-angle-left"></i> Continue
-                        Shopping</a>
-                    <a href="{{ url('/checkout') }}" class="btn btn-danger">Checkout</a>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+        </div>
+       
+        
+    </section>
+    
+    
 </div>
-<div class="footer" style="margin-top:25%">
-    {{View::make("frontend.footer")}}
-    </div>
+<div class="footer" style="margin-top:10%;">
+    {{ View::make('frontend.footer') }}
+</div>
+

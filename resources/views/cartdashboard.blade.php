@@ -6,8 +6,10 @@
     <title>Bilibeads</title>
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-5S5lGQkDxM5es73cnd0VWnywP4/1XWpPn6u6xRUmD2Gr5rX3HwX9rVSnFd6rd+iJymtiQ4zbCj6Qjy+kLcZgIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/style.css">
+
 <link
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 rel="stylesheet"
@@ -15,7 +17,6 @@ rel="stylesheet"
 <link
 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 rel="stylesheet">
-
 
 <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
     <div class="container">
