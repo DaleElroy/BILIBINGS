@@ -109,7 +109,7 @@
 </section>
 <style>
     .rounded-circle {
-    border-radius: 50%; /* Makes the image circular */
-    overflow: hidden; /* Ensures the image remains within the circular boundary */
+    border-radius: 50%; 
+    overflow: hidden; 
 }
 </style>
