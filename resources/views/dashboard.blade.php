@@ -52,7 +52,7 @@ rel="stylesheet">
             </ul>
             <form class="form-inline" action="{{ url('search') }}" method="GET">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color: #fcfafa;">Search</button>
             </form>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
