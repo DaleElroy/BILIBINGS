@@ -62,7 +62,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-block btn-lg">Total Price: ${{ $totalPrice }}</button>
+                            <h1 class="btn btn-primary btn-block btn-lg">Total Price: ${{ $totalPrice }}</h1>
                         </div>
                     </div>
                     <div class="card">
@@ -76,12 +76,12 @@
             
         </div>
        
+        <div class="footer" style="margin-top:10%;">
+            {{ View::make('frontend.footer') }}
+        </div>
         
     </section>
     
     
-</div>
-<div class="footer" style="margin-top:10%;">
-    {{ View::make('frontend.footer') }}
 </div>
 
