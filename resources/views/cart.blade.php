@@ -67,7 +67,14 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary btn-block btn-lg">Proceed to Pay</button>
+                            <a href="/checkouts">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" id="checkout-live-button">Proceed to Pay</button>
+                            </a>
+                            {{-- <form action="{{url('checkout')}}">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-block btn-lg" id="checkout-live-button">Proceed to Pay</button>
+                            </form> --}}
+                           
                         </div>
                     </div>
                 </div>

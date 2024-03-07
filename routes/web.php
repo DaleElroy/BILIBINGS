@@ -115,6 +115,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
     Route::get('adminproduct',[AdminController::class,'productList'])->name('backend.product.index');
     Route::delete('adminproduct/{product}', [AdminController::class, 'destroy'])->name('backend.product.index');
+    Route::get('checkouts',function(){
+        return view('checkout');
+
+    });
+   
 
 
 // Route::get('adminuser',[UserController::class,'userData'])->name('backend.user');
