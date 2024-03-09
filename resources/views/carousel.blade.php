@@ -32,7 +32,7 @@
                     of bead-based products and craft ideas.</p>
             </div>
         </div>
-        <div class="border p-4">
+        {{-- <div class="border p-4">
             <div class="row">
                 <div class="text-center">
                     <h4 class="text-center">Latest Product</h4>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
 
     </div>
     <div class="border-p4" style="margin-top: 5%">
@@ -58,12 +58,12 @@
         @endif
         @foreach ($products->chunk(6) as $chunkedProducts)
             @foreach ($chunkedProducts as $category => $categoryProducts)
-                <div class="col border border-2" style="margin-top: 5%">
+                <div class=" border border-4" style="margin-top: 5%;  border-style: solid;">
                     <div class="category-border" >
                         <h1 class="text-center"><span class="category">{{ ucfirst($category) }}</span></h1>
-                        <div class=" row">
+                        <div class=" row mx-auto">
                             @foreach ($categoryProducts as $product)
-                                <div class="card mb-4 g-col-6">
+                                <div class="card mx-auto mt-4 mb-4">
                                     <div class="text-center tumb">
                                         <img src="{{ asset('products/' . $product->gallery) }}" class="img-fluid"
                                             alt="{{ $product->title }}">
@@ -103,6 +103,7 @@
             @endforeach
         @endforeach
     </div>
+    
     
 </div>
 <div class="bottom" style="margin-top:10%">

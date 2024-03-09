@@ -14,6 +14,7 @@ class BeadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'bead' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
         ]);
 
@@ -23,6 +24,7 @@ class BeadController extends Controller
             $image->move(public_path('beads'), $imageName);
 
             $bead = new Bead();
+            $bead->name=$request->name;
             $bead->bead = $imageName;
             $bead->save();
 

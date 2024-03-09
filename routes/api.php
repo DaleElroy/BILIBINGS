@@ -83,7 +83,7 @@ Route::delete('cart/cart-remove/{id}', [CartController::class, 'destroy']);
 
 //Route for one to one
 
-Route::get('one',[UserController::class,'index']);
-Route::post('one',[UserController::class,'store']);
-Route::put('one/{id}',[UserController::class,'updateDetails']);
+Route::get('userinfo',[UserController::class,'index']);
+Route::post('userinfo',[UserController::class,'store']);
+Route::put('userinfo/{id}',[UserController::class,'updateDetails']);
 

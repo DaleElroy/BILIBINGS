@@ -7,14 +7,14 @@
         @if (session('message'))
             <h4 class= "alert alert-success">{{ session('message') }}</h4>
         @endif
-        @foreach ($products->chunk(6) as $chunkedProducts)
+        @foreach ($products->chunk(4) as $chunkedProducts)
             @foreach ($chunkedProducts as $category => $categoryProducts)
                 <div class="col border border-2" style="margin-top: 5%">
                     <div class="category-border">
                         <h1 class="text-center"><span class="category">{{ ucfirst($category) }}</span></h1>
-                        <div class="row">
+                        <div class="row mx-auto ">
                             @foreach ($categoryProducts as $product)
-                                <div class="card card mb-4 g-col-6">
+                                <div class="card mx-auto">
                                     <div class="text-center tumb">
                                         <img src="{{ asset('products/' . $product->gallery) }}" class="img-fluid"
                                             alt="{{ $product->title }}">

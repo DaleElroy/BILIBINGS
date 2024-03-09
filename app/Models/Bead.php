@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bead extends Model
 {
-    protected $fillable = ["bead"];
+    protected $fillable = ["bead","name"];
     use HasFactory;
 }

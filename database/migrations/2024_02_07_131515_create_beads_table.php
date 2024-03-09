@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('beads', function (Blueprint $table) {
             $table->id();
             $table->string('bead');
+            $table->string('name');
             $table->timestamps();
         });
     }

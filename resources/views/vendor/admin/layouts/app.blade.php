@@ -49,7 +49,7 @@
                 <!-- Logo -->
                 <div class="navbar-brand">
                     <a href="@route(getRouteName().'.home')">
-                        <span class="logo-text">{{ __('EasyPanel') }}</span>
+                        <span class="logo-text">{{ __('Bilibeads Admin') }}</span>
                     </a>
 
                     <div class="container-checkbox">

@@ -26,8 +26,8 @@
             
         </div>
         <div class="mb-2">
-            <label for="wristSize">Enter Wrist Size (in inches):</label>
-            <input type="number" id="wristSize" min="0" step="0.1">
+            <label  for="wristSize">Enter Wrist Size (in inches):</label>
+            <input class="form-control w-50" type="number" id="wristSize" min="0" step="0.1">
         </div>
         <button id="clearBtn" class="btn btn-danger mb-2">Clear</button>
         <button id="addToCartBtn" class="btn btn-success mb-2">Add to Cart</button>

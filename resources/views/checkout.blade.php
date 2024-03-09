@@ -1,11 +1,12 @@
-<div>
-@extends('cartdashboard')
-</div>
+<div class="nav">
 
+</div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <div class="card">
     <div class="card-top border-bottom text-center">
-        <a href="#"> Back to shop</a>
-        <span id="logo">BBBootstrap.com</span>
+        <a href="/"> Back to shop</a>
+        
     </div>
     <div class="card-body">
         <div class="row upper">
@@ -96,7 +97,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0, 0, 34);
+    background-color: rgb(255, 255, 255);
     font-size: 0.8rem;
 }
 .card{

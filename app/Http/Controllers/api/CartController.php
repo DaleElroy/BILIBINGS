@@ -16,8 +16,7 @@ class CartController extends Controller
     }
     public function addToCart(Request $request, $productId)
     {
-        if (auth::check()) {
-            $user = Auth::user();
+        
             $product = Product::find($productId);
             
             if (!$product) {
@@ -25,8 +24,9 @@ class CartController extends Controller
             }
 
             $cart = new Cart;
-            $cart->user_id = $user->id; 
+            $cart->user_id = $request->id; 
             $cart->product_id = $product->id; 
+            
             $cart->product_title = $product->title;
             $cart->product_price = $product->price;
             $cart->quantity = $request->quantity;
@@ -35,8 +35,7 @@ class CartController extends Controller
             $cart->save();
 
             return response()->json(['message' => 'Product added to cart successfully'], 200);
-        } else {
-            return response()->json(['error' => 'Unauthenticated'], 401);
+        
         }
     }
-}
+
